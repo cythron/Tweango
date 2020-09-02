@@ -14,8 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
+
+from tweets.views import home_view, tweet_detail_view
+from tweets.views import tweet_list_view, tweet_create_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("", home_view, name="home"),
+    path("tweets/<int:tweet_id>", tweet_detail_view, name="tweets"),
+    re_path(r"^regex///ok$", home_view), # Example of regex using re_path, previously known as url
+    path('tweets/', tweet_list_view),
+    path('create-tweet', tweet_create_view),
 ]

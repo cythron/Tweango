@@ -1,0 +1,18 @@
+{% extends 'pages/base.html' %}
+{% block title %}BASE{% endblock title %}
+
+{% block content %}
+    <div id="row">
+        <div class="col text-center">
+           <h2>Create Tweet</h2>
+        </div>
+    </div>
+
+    <form method="POST">{% csrf_token %}
+    {% comment %} {{ form.as_p }} {% endcomment %}
+    <input type="hidden" value="/" name="next">
+    <p><label class="" for="id-content">Text</label>
+    <br><input type="text" name="content" id="id-content" maxlength="240"></p>
+    <button type="submit" class="btn btn-secondary">Tweet</button>
+    </form>
+{% endblock content %}
