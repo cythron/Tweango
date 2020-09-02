@@ -25,12 +25,13 @@ SECRET_KEY = '5v51y03qjuqsjw670wf$n%&7v$bc0(ggr^+ofk7j8ggv-00e^^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'tweets.apps.TweetsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
